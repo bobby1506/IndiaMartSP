@@ -14,25 +14,10 @@ const sellerList = async (ctx) => {
   }
 };
 
-//seller Orders
-const sellerOrders = async (ctx) => {
-  try {
-    const { _id } = ctx.state.user;
-    const sellerOrders = await getOrders(_id);
-    if (!sellerOrders) return resHandler(ctx, 400, "orders not fetched", false);
-    resHandler(ctx, 200, "orders fetched successfully", true, sellerOrders);
-  } catch (error) {}
-};
+
 
 //approve Orders
 
-const approveOrders = async (ctx) => {
-  try {
-    const { _id } = ctx.state.user;
-    const sellerOrders = await getOrders(_id);
-    if (!sellerOrders) return resHandler(ctx, 400, "orders not fetched", false);
-    resHandler(ctx, 200, "orders fetched successfully", true, sellerOrders);
-  } catch (error) {}
-};
 
-module.exports = { sellerList, sellerOrders };
+
+module.exports = { sellerList};
