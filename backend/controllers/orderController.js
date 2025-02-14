@@ -83,6 +83,7 @@ const approveOrder = async (ctx) => {
     const { orderId } = ctx.params;
     const sellerOrders = await approveOrders(orderId);
     if (!sellerOrders) return resHandler(ctx, 400, "order not approved", false);
+    if(!sellerOrders.modifiedCount) return resHandler(ctx,500,"not updated",false)
     resHandler(ctx, 200, "orders approved successfully", true);
   } catch (error) {
     console.log("approveOrder", error);
