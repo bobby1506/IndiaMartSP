@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { clearToken } from "../../shared/localStorage";
 
@@ -31,9 +32,9 @@ const CustomNavbar = ({ logout }) => {
       }}
     >
       <div className="container">
-        <a
+        <Link
           className="navbar-brand"
-          href="#"
+          to="/"
           style={{
             color: "#5c4b41",
             fontWeight: "bold",
@@ -41,7 +42,7 @@ const CustomNavbar = ({ logout }) => {
           }}
         >
           MyBrand
-        </a>
+        </Link>
         <button
           className="navbar-toggler"
           type="button"
@@ -56,45 +57,25 @@ const CustomNavbar = ({ logout }) => {
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav ms-auto">
             <li className="nav-item">
-              <a
-                className="nav-link"
-                href="#"
-                style={navLinkStyle}
-                onMouseEnter={(e) => (e.target.style.color = "#8b6f47")}
-                onMouseLeave={(e) => (e.target.style.color = "#5c4b41")}
-              >
+              <Link className="nav-link" to="/" style={navLinkStyle}>
                 Home
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a
-                className="nav-link"
-                href="#"
-                style={navLinkStyle}
-                onMouseEnter={(e) => (e.target.style.color = "#8b6f47")}
-                onMouseLeave={(e) => (e.target.style.color = "#5c4b41")}
-              >
-                Services
-              </a>
+              <Link className="nav-link" to="/orderForm" style={navLinkStyle}>
+                Order Product
+              </Link>
             </li>
             <li className="nav-item">
-              <a
-                className="nav-link"
-                href="#"
-                style={navLinkStyle}
-                onMouseEnter={(e) => (e.target.style.color = "#8b6f47")}
-                onMouseLeave={(e) => (e.target.style.color = "#5c4b41")}
-              >
+              <Link className="nav-link" to="/contact" style={navLinkStyle}>
                 Contact
-              </a>
+              </Link>
             </li>
           </ul>
           <button
             className="btn"
             onClick={handleLogout}
             style={logoutButtonStyle}
-            onMouseEnter={(e) => (e.target.style.backgroundColor = "#6e5436")}
-            onMouseLeave={(e) => (e.target.style.backgroundColor = "#8b6f47")}
           >
             Logout
           </button>
