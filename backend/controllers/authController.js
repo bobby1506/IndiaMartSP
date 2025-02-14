@@ -25,9 +25,7 @@ const registerUser = async (ctx) => {
 
     resHandler(ctx, 201, "user created", true, {
       token,
-      userName,
-      email,
-      isSeller,
+      data: { userName, email, isSeller },
     });
   } catch (error) {
     console.log("registerUser", error);
@@ -50,10 +48,8 @@ const loginUser = async (ctx) => {
     const token = generateToken(userData);
 
     let user = {
-      email,
       token,
-      userName: userData.userName,
-      isSeller: userData.isSeller,
+      data: { email, userName: userData.userName, isSeller: userData.isSeller },
     };
 
     resHandler(ctx, 200, "user fetched", true, user);
@@ -68,7 +64,7 @@ const loginUser = async (ctx) => {
 const getUser = async (ctx) => {
   try {
     let user = ctx.state.user;
-    resHandler(ctx,200,"user fetched",true,user)
+    resHandler(ctx, 200, "user fetched", true, {data:user});
   } catch (error) {
     console.log("getUser", error);
     resHandler(ctx, 500, "internal server error", false);

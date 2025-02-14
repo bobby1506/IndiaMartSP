@@ -49,7 +49,7 @@ const userNameValidator = (ctx) => {
 
 const sellerValidator = (ctx) => {
   const { isSeller } = ctx.request.body;
-  if (!isSeller)
+  if (isSeller!=true && isSeller!=false)
     return {
       field: "isSeller",
       message: "Please enter are you a seller or not",
