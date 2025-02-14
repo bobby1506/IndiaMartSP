@@ -12,6 +12,7 @@ import SellerDashboard from "./pages/SellerDashboard";
 import Main from "./components/layout/Main";
 import Seller from "./components/layout/Seller";
 import OrderFormContainer from "./container/OrderFormContainer";
+import OrderListUserContainer from "./container/orderListUserContainer";
 
 const App = ({ user, getUser }) => {
   const navigate = useNavigate();
@@ -49,6 +50,7 @@ const App = ({ user, getUser }) => {
           element={<Seller>{<SellerDashboard />}</Seller>}
         />
         <Route path="/orderForm/:sellerId" element={<OrderFormContainer />} />
+        <Route path="/orders" element={<OrderListUserContainer />} />
       </Routes>
     </>
   );

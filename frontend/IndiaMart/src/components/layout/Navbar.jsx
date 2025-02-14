@@ -61,14 +61,9 @@ const CustomNavbar = ({ logout }) => {
                 Home
               </Link>
             </li>
-            {/* <li className="nav-item">
-              <Link className="nav-link" to="/orderForm" style={navLinkStyle}>
-                Order Product
-              </Link>
-            </li> */}
             <li className="nav-item">
-              <Link className="nav-link" to="/contact" style={navLinkStyle}>
-                Contact
+              <Link className="nav-link" to="/orders" style={navLinkStyle}>
+                Order History
               </Link>
             </li>
           </ul>

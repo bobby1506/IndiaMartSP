@@ -1,7 +1,9 @@
+import OrderListSellerContainer from "../container/orderListSellerContainer";
+
 const SellerDashboard = () => {
   return (
     <div>
-      <h2>Hi i am a seller</h2>
+      <OrderListSellerContainer />
     </div>
   );
 };
