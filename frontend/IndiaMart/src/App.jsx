@@ -11,6 +11,7 @@ import UserScreen from "./pages/UserScreen";
 import SellerDashboard from "./pages/SellerDashboard";
 import Main from "./components/layout/Main";
 import Seller from "./components/layout/Seller";
+import OrderFormContainer from "./container/OrderFormContainer";
 
 const App = ({ user, getUser }) => {
   const navigate = useNavigate();
@@ -47,6 +48,7 @@ const App = ({ user, getUser }) => {
           path="/sellerDashboard"
           element={<Seller>{<SellerDashboard />}</Seller>}
         />
+        <Route path="/orderForm" element={<OrderFormContainer />} />
       </Routes>
     </>
   );
