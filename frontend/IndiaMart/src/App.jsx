@@ -48,7 +48,7 @@ const App = ({ user, getUser }) => {
           path="/sellerDashboard"
           element={<Seller>{<SellerDashboard />}</Seller>}
         />
-        <Route path="/orderForm" element={<OrderFormContainer />} />
+        <Route path="/orderForm/:sellerId" element={<OrderFormContainer />} />
       </Routes>
     </>
   );

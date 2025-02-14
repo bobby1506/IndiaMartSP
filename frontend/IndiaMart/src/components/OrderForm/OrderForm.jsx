@@ -1,9 +1,10 @@
 /* eslint-disable react/prop-types */
 import { useEffect, useRef, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 const OrderForm = ({ createOrder }) => {
   const inputRef = useRef(null);
+  const navigate = useNavigate();
   const { sellerId } = useParams();
   const [formData, setFormData] = useState({
     userName: "",
@@ -44,6 +45,7 @@ const OrderForm = ({ createOrder }) => {
     e.preventDefault();
     console.log("Order Submitted:", formData);
     createOrder(formData, sellerId);
+    navigate("/");
   };
 
   useEffect(() => {
@@ -63,8 +65,8 @@ const OrderForm = ({ createOrder }) => {
               type="text"
               ref={inputRef}
               className="form-control"
-              name="name"
-              value={formData.name}
+              name="userName"
+              value={formData.userName}
               onChange={handleOnChange}
               required
             />

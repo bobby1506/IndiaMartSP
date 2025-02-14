@@ -12,13 +12,14 @@ const initialState = {
 };
 
 export const sellerReducer = (state = initialState, action) => {
+  console.log(action.payload?.data?.data);
   switch (action.type) {
     case GETSELLER_FULFILLED:
       return {
         ...state,
         isLoading: false,
-        seller: action.payload.data,
-        message: action.payload.data.message,
+        seller: action.payload?.data?.data,
+        message: action.payload?.data?.message,
         error: null,
       };
 
@@ -33,7 +34,11 @@ export const sellerReducer = (state = initialState, action) => {
         ...state,
         isLoading: false,
         seller: null,
-        error: action.payload.data.message,
+        error: action.payload?.data?.message,
+      };
+    default:
+      return {
+        ...state,
       };
   }
 };
