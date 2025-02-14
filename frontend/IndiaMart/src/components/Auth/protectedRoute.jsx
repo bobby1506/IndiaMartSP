@@ -1,10 +1,10 @@
+/* eslint-disable react/prop-types */
 import { getToken } from "../../shared/localStorage";
-import { useNavigate } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 
 const ProtectedRoute = ({ element }) => {
-  const navigate = useNavigate();
   const userToken = getToken();
-  return userToken ? element : navigate("/login");
+  return userToken ? element : <Navigate to={"/login"} replace />;
 };
 
 export default ProtectedRoute;

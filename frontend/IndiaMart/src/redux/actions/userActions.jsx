@@ -29,8 +29,8 @@ export const getUser = () => async (dispatch) => {
   });
 };
 
-export const logout = () => async (dispatch) => {
-  dispatch({
+export const logout = () => {
+  return {
     type: "LOGOUT",
-  });
+  };
 };

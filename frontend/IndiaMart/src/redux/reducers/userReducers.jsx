@@ -8,9 +8,7 @@ import {
   GETUSER_FULFILLED,
   GETUSER_PENDING,
   GETUSER_REJECTED,
-  LOGOUT_FULFILLED,
-  LOGOUT_REJECTED,
-  LOGOUT_PENDING,
+  LOGOUT,
 } from "../constants/userContants";
 
 const initialState = {
@@ -26,7 +24,6 @@ export const userReducer = (state = initialState, action) => {
     case REGISTER_PENDING:
     case LOGIN_PENDING:
     case GETUSER_PENDING:
-    case LOGOUT_PENDING:
       return {
         ...state,
         isLoading: true,
@@ -42,7 +39,7 @@ export const userReducer = (state = initialState, action) => {
         user: action.payload.data.data,
         message: action.payload.data?.message || "Success",
       };
-    case LOGOUT_FULFILLED:
+    case LOGOUT:
       return {
         ...state,
         isLoading: true,
@@ -60,14 +57,6 @@ export const userReducer = (state = initialState, action) => {
         user: null,
         error: action.payload.data?.message || "Error",
       };
-    case LOGOUT_REJECTED:
-      return {
-        ...state,
-        isLoading: false,
-        user: null,
-        error: action.payload.data?.message || "Error",
-      };
-
     case "EMPTY_MSSG":
       return {
         ...state,

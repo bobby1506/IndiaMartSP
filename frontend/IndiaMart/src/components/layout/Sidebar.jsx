@@ -9,7 +9,9 @@ const Sidebar = ({ logout }) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
   const handleLogout = () => {
+    console.log("hello1");
     clearToken();
+    console.log("hello2");
     logout();
   };
 

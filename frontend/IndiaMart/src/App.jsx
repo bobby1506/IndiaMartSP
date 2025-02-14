@@ -15,7 +15,6 @@ import Seller from "./components/layout/Seller";
 const App = ({ user, getUser }) => {
   const navigate = useNavigate();
   const userToken = getToken();
-  console.log(userToken, "userToken");
   useEffect(() => {
     if (userToken) {
       getUser();
