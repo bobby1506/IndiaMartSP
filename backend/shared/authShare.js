@@ -14,9 +14,14 @@ const isValidEmail = (email) => {
   return emailRegx.test(email);
 };
 
+const isValidMobile=(mobile)=>{
+  const mobileRegx=/^[6-9]\d{9}$/;
+  return mobileRegx.test(mobile);
+}
+
 const isValidPassword = (password) => {
   const passwordRegx = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/;
   return passwordRegx.test(password);
 };
 
-module.exports = { isEmpty, isValidEmail, isValidPassword };
+module.exports = { isEmpty, isValidEmail, isValidPassword,isValidMobile };

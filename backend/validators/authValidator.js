@@ -21,7 +21,7 @@ const emailValidator = (ctx) => {
 };
 
 const passwordValidator = (ctx) => {
-  const { password } = ctx.request.body;
+  const { password } = ctx.request.body;   
   const emptyError = isEmpty(password, "password");
   if (emptyError) return emptyError;
   if (!isValidPassword(password))
@@ -69,10 +69,18 @@ const isUserExistValidator = async (ctx) => {
   return null;
 };
 
+const isEmailExistValidator = async (ctx) => {
+  const { email } = ctx.request.body;
+  const user = await userCollection.findOne({ email });
+  if (!user) return { field: "user", message: "user does not exist" };
+  return null;
+};
+
 module.exports = {
   emailValidator,
   passwordValidator,
   userNameValidator,
   sellerValidator,
   isUserExistValidator,
+  isEmailExistValidator
 };
