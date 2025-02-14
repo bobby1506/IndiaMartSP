@@ -1,0 +1,58 @@
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    background-color: #f5e6cc; /* Creamy color */
+    width: 60px;
+    transition: width 0.3s ease;
+    box-shadow: 4px 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+  }
+  
+  .sidebar:hover {
+    width: 200px;
+  }
+  
+  .nav-link {
+    color: #5c4b41;
+    font-weight: 600;
+    font-size: 1.1rem;
+    padding: 15px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    transition: 0.3s;
+  }
+  
+  .nav-link:hover {
+    color: #8b6f47;
+  }
+  
+  .icon {
+    margin-right: 10px;
+  }
+  
+  .spacer {
+    flex-grow: 1;
+  }
+  
+  .logout-btn {
+    background: none;
+    border: none;
+    color: #d9534f;
+    font-weight: 600;
+    font-size: 1.1rem;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .logout-btn:hover {
+    color: #c9302c;
+  }
+  
