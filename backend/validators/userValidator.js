@@ -1,5 +1,6 @@
 const userValidator = (ctx)=>{
     const {isSeller} = ctx.state.user
+    console.log("userValidator runs")
     if(isSeller) return {field:"user", message:"you are not a user"}
     return null
 }
