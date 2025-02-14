@@ -8,18 +8,18 @@ const { connectDb } = require("./config/dbConfig");
 const bodyParser = require("koa-bodyparser");
 require("dotenv").config();
 
-const router=new Router()
+const router = new Router();
 const app = new Koa();
-const routes = [authRoutes,sellerRoutes,orderRoutes,router];
-router.get('/',(ctx)=>{
-  ctx.body={"message":"hi"}
-})
-// app.use(
-//   cors({
-//     origin: "http://localhost:6000",
-//     credentials: true,
-//   })
-// );
+const routes = [authRoutes, sellerRoutes, orderRoutes, router];
+router.get("/", (ctx) => {
+  ctx.body = { message: "hi" };
+});
+app.use(
+  cors({
+    origin: "http://localhost:5173",
+    credentials: true,
+  })
+);
 connectDb();
 app.use(bodyParser());
 
