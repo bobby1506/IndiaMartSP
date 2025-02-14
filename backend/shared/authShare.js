@@ -1,4 +1,4 @@
-const isEmpty = (field,fieldNa) => {
+const isEmpty = (field,fieldName) => {
   field = field?.trim();
   if (!field) {
     return {
