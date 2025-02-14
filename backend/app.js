@@ -1,4 +1,5 @@
 const Koa = require("koa");
+const cors = require("@koa/cors");
 const Router = require("koa-router");
 const authRoutes = require("./routes/authRoute");
 const sellerRoutes = require("./routes/sellerRoute");
@@ -9,6 +10,12 @@ require("dotenv").config();
 
 const app = new Koa();
 const routes = [authRoutes,sellerRoutes,orderRoutes];
+app.use(
+  cors({
+    origin: "http://localhost:3000",
+    credentials: true,
+  })
+);
 connectDb();
 app.use(bodyParser());
 
