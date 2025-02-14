@@ -1,4 +1,5 @@
 const { client } = require("../config/dbConfig");
+const { ObjectId } = require("mongodb");
 
 const orderCollection = client.db(process.env.DB_NAME).collection("orders");
 
@@ -10,7 +11,7 @@ const getUserOrders = async (id) =>
   await orderCollection.find({ userId: id.toString() }).toArray();
 const approveOrders = async (orderId) =>
   await orderCollection.updateOne(
-    { _id: orderId },
+    { _id: new ObjectId(orderId) },
     { $set: { isApproved: true } }
   );
 
