@@ -15,6 +15,7 @@ const {
 } = require("../validators/orderValidators");
 const { createOrder } = require("../controllers/orderController");
 const { userValidator } = require("../validators/userValidator");
+const { sellerOrders } = require("../controllers/sellerController");
 
 const router = new Router();
 
@@ -30,9 +31,11 @@ router.post(
     shopAddressValidator,
     shopNameValidator,
     shippingDetailsValidator,
-    userValidator
+    userValidator,
   ]),
   createOrder
 );
 
-module.exports=router
+router.get("/getsellerorders", tokenMiddleware, sellerOrders);
+
+module.exports = router;
