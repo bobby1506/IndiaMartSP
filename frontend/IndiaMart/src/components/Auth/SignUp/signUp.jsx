@@ -6,7 +6,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 const SignupForm = ({ register }) => {
   const inputRef = useRef(null);
   const [formData, setFormData] = useState({
-    username: "",
+    userName: "",
     email: "",
     password: "",
     isSeller: false,
@@ -43,8 +43,8 @@ const SignupForm = ({ register }) => {
             <input
               ref={inputRef}
               type="text"
-              name="username"
-              value={formData.username}
+              name="userName"
+              value={formData.userName}
               onChange={handleOnChange}
               placeholder="Enter username"
               className="form-control"

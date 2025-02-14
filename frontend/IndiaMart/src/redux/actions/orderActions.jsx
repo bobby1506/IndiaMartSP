@@ -6,7 +6,7 @@ import { getToken } from "../../shared/localStorage";
 export const createOrder = (orderData, sellerId) => async (dispatch) => {
   dispatch({
     type: "CREATE_ORDER",
-    payload: axios.post(`${url} + createOrder/${sellerId}`, orderData, {
+    payload: axios.post(`${url}createOrder/${sellerId}`, orderData, {
       headers: {
         "Content-Type": "application/json",
         Authorization: getToken(),

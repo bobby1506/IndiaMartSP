@@ -8,14 +8,16 @@ const SellerList = ({ seller, getSeller }) => {
 
   useEffect(() => {
     getSeller();
+  }, []);
 
-    setSellers(seller.data);
-  }, [getSeller]);
+  useEffect(() => {
+    setSellers(seller.seller);
+  }, [seller]);
 
   return (
     <div className="container mt-4">
       <div className="row">
-        {sellers.map((seller, index) => (
+        {sellers?.map((seller, index) => (
           <div key={index} className="col-md-4 mb-3">
             <div className="card" style={{ backgroundColor: "#f5e6cc" }}>
               <div className="card-body">
@@ -23,7 +25,7 @@ const SellerList = ({ seller, getSeller }) => {
                 <p className="card-text">{seller.email}</p>
                 <button
                   className="btn btn-primary"
-                  onClick={() => navigate(`/orderForm/${seller.sellerId}`)}
+                  onClick={() => navigate(`/orderForm/${seller._id}`)}
                 >
                   Order
                 </button>

@@ -22,8 +22,8 @@ export const orderReducers = (state = initialState, action) => {
       return {
         ...state,
         isLoading: false,
-        orders: action.payload.data.orders,
-        message: action.payload.data.message || "Success",
+        orders: action.payload?.data?.orders,
+        message: action.payload?.data?.message || "Success",
         error: null,
       };
     case CREATE_ORDER_PENDING:
@@ -38,8 +38,12 @@ export const orderReducers = (state = initialState, action) => {
         ...state,
         isLoading: false,
         orders: null,
-        error: action.payload.data.error || "Error",
+        error: action.payload?.data?.error || "Error",
         message: null,
+      };
+    default:
+      return {
+        ...state,
       };
   }
 };

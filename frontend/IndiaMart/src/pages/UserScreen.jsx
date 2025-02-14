@@ -1,7 +1,9 @@
+import SellerListContainer from "../container/sellerContainer";
+
 const UserScreen = () => {
   return (
     <div>
-      <h2>Hello i am a user</h2>
+      <SellerListContainer />
     </div>
   );
 };
