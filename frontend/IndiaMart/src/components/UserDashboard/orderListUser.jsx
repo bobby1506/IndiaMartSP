@@ -1,19 +1,22 @@
 import { useEffect, useState } from "react";
+import { getSeller } from "../../redux/actions/sellerActions";
+import { useDispatch } from "react-redux";
+import { getOrderUser } from "../../redux/actions/orderActions";
 
-const OrderListUser = ({ orderUser, getOrderUser }) => {
+const OrderListUser = ({ orderUser }) => {
   const [orders, setOrders] = useState([]);
 
-  useEffect(() => {
-    getOrderUser();
-  }, []);
+  const dispatch = useDispatch();
+  dispatch(getOrderUser());
+  // useEffect(() => {
+  //   // getOrderUser();
+  // }, []);
 
-  useEffect(() => {
-    setOrders(orderUser);
-  }, [orderUser]);
+  // useEffect(() => {
+  //   setOrders(orderUser);
+  // }, [orderUser]);
 
-  const handleApprovalChange = (orderId) => {
-    // getApproval();
-  };
+  console.log(orders, "ordersssssssssss");
 
   return (
     <div className="container mt-4">

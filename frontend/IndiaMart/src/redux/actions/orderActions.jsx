@@ -15,14 +15,14 @@ export const createOrder = (orderData, sellerId) => async (dispatch) => {
   });
 };
 
-export const getOrder = () => async (dispatch) => {
-  dispatch({
-    type: "GET_ORDER",
-    payload: axios.get(`${url + "getOrder"}`, {
-      headers: { Authorization: getToken() },
-    }),
-  });
-};
+// export const getOrder = () => async (dispatch) => {
+//   dispatch({
+//     type: "GET_ORDER",
+//     payload: axios.get(`${url + "getOrder"}`, {
+//       headers: { Authorization: getToken() },
+//     }),
+//   });
+// };
 
 export const getOrderSeller = () => async (dispatch) => {
   dispatch({
@@ -35,9 +35,26 @@ export const getOrderSeller = () => async (dispatch) => {
 
 export const getOrderUser = () => async (dispatch) => {
   dispatch({
-    type: "GET_ORDER",
+    type: "GET_ORDERR",
     payload: axios.get(`${url + "getuserorders"}`, {
       headers: { Authorization: getToken() },
     }),
+  });
+};
+
+export const approveOrder = (orderId) => async (dispatch) => {
+  console.log(getToken(), "gettoken");
+  dispatch({
+    type: "APROOVE_ORDER",
+    payload: axios.post(
+      `${url}approveorder/${orderId}`,
+      {},
+      {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: getToken(),
+        },
+      }
+    ),
   });
 };

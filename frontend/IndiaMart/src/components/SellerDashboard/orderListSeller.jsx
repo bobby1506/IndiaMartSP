@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const OrderListSeller = ({ orderSeller, getOrderSeller, getApproval }) => {
+const OrderListSeller = ({ orderSeller, getOrderSeller, approveOrder }) => {
   const [orders, setOrders] = useState([]);
 
   useEffect(() => {
@@ -12,7 +12,12 @@ const OrderListSeller = ({ orderSeller, getOrderSeller, getApproval }) => {
   }, [orderSeller]);
 
   const handleApprovalChange = (orderId) => {
-    // getApproval();
+    setOrders((prev) =>
+      prev.map((order) =>
+        order._id === orderId ? { ...order, isApproved: true } : order
+      )
+    );
+    approveOrder(orderId);
   };
 
   return (

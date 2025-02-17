@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { getOrderSeller } from "../redux/actions/orderActions";
+import { approveOrder, getOrderSeller } from "../redux/actions/orderActions";
 import orderListSeller from "../components/SellerDashboard/orderListSeller";
 
 const mapStateToProps = (state) => (
@@ -11,7 +11,7 @@ const mapStateToProps = (state) => (
 
 const mapDispatchToProp = (dispatch) => ({
   getOrderSeller: () => dispatch(getOrderSeller()),
-  getApproval: () => dispatch(getApproval()),
+  approveOrder: (orderId) => dispatch(approveOrder(orderId)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProp)(orderListSeller);
