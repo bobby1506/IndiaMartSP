@@ -12,7 +12,7 @@ const initialState = {
 };
 
 export const sellerReducer = (state = initialState, action) => {
-  console.log(action.payload?.data?.data);
+  // console.log(action.payload?.data?.data);
   switch (action.type) {
     case GETSELLER_FULFILLED:
       return {

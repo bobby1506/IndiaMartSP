@@ -9,11 +9,19 @@ const CustomNavbar = ({ logout }) => {
     const navbarToggler = document.querySelector(".navbar-toggler");
     const navbarCollapse = document.querySelector(".navbar-collapse");
 
+    const toggleNavbar = () => {
+      navbarCollapse.classList.toggle("show");
+    };
+
     if (navbarToggler && navbarCollapse) {
-      navbarToggler.addEventListener("click", () => {
-        navbarCollapse.classList.toggle("show");
-      });
+      navbarToggler.addEventListener("click", toggleNavbar);
     }
+
+    return () => {
+      if (navbarToggler) {
+        navbarToggler.removeEventListener("click", toggleNavbar);
+      }
+    };
   }, []);
 
   const handleLogout = () => {
@@ -61,11 +69,15 @@ const CustomNavbar = ({ logout }) => {
                 Home
               </Link>
             </li>
-            {/* <li className="nav-item">
-              <Link className="nav-link" to="/orderForm" style={navLinkStyle}>
-                Order Product
+            <li className="nav-item">
+              <Link
+                className="nav-link"
+                to="/orderedProduct"
+                style={navLinkStyle}
+              >
+                Orders
               </Link>
-            </li> */}
+            </li>
             <li className="nav-item">
               <Link className="nav-link" to="/contact" style={navLinkStyle}>
                 Contact
